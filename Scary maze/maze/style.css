@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Workbench&display=swap');
+body {
+  text-align: center;
+  font-family: sans-serif;
+  padding-top: 50px;
+}
+
+#wall {
+  width: 801px;
+  height: 601px;
+  background-color: #494742;
+  margin: 0 auto;
+  position: relative; 
+}
+
+#gate {
+  width: 10px;
+  height: 601px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 99;
+}
+
+/* Shared styles for ALL valid path elements */
+.path {
+  position: absolute; /* ← lets you place them freely inside #wall */
+ background-color: #FFF8E7;
+}
+
+#start-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+}
+
+#timer {
+  font-family: "Workbench", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+  color: red;
+  background-color: #0a0a0a;
+  border: 3px solid #333;
+  border-radius: 8px;
+  padding: 10px 24px;
+  width: fit-content;
+  margin: 10px auto;
+  letter-spacing: 8px;
+  text-align: center;
+
+
+  position: relative;
+}
+
+#timer::before {
+  content: '88';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  color: rgba(0, 255, 65, 0.1);
+  letter-spacing: 8px;
+  font-size: 3rem;
+  pointer-events: none;
+}
+#travel {
+  position: absolute;
+  width: 800px;  
+  height: 600px;  
+  visibility: hidden;
+  background-color: #FFF8E7;
+  top: 0;
+  left: 0;
+}
+@keyframes pulse {
+  0%   { transform:  scale(.5); }
+  50%  { transform: scale(1.2); }
+  100% { transform:  scale(.5); }
+}
+@keyframes pulse2 {
+  0%   { transform:  scale(1.75); }
+  50%  { transform: scale(.5); }
+  100% { transform:  scale(1.75); }
+}
+@keyframes zoom {
+  0%   { transform:  scale(0); }
+  100% { transform:  scale(8); }
+}
+#moon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; 
+  top: 40px;
+  right: 40px;
+  background-image: url("visual content/pixelart.png");
+  background-size: cover;      
+  background-position: center;  
+  background-repeat: no-repeat;
+  /* transition: top 0.5s ease, right 0.5s ease, bottom 0.5s ease, left 0.5s ease;
+   */
+}
+
+/* CSS hover action just on the moon */
+#moon:hover {
+  background-color: yellow;
+  box-shadow: 0 0 20px yellow;
+}
+#intro-gif {
+  position: absolute;
+  bottom: 20%;
+  left: 20%;
+  z-index: 999;
+  display: none;
+}
